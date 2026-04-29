@@ -21,7 +21,14 @@ struct ContentView: View {
         }
         .padding()
 }
+    func updateProgress(){
+        let goal = Double(goalHours) ?? 0.0
+        let completed = Double(completedHours) ?? 0.0
+        
     }
+    
+    }
+
      
 #Preview {
     ContentView()

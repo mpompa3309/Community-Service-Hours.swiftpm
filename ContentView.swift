@@ -7,31 +7,51 @@ struct ContentView: View {
    @State private var progressMessage = "0%"
     
     var body: some View{
-        VStack(spacing: 20){
-            Text("Community Service Tracker")
-                .font(.title)
+        ZStack{
             
-            TextField("Goal hours", text: $goalHours)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.decimalPad)
+            Color(.systemBackground)
+                            .ignoresSafeArea()
+            VStack(spacing: 25){
+                Text("Community Service Tracker")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+
+                Text("Track your volunteer hours")
+                                .foregroundColor(.gray)
+                
+                TextField("Goal hours", text: $goalHours)
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.decimalPad)
+                   
+
+                TextField("Completed hours", text: $completedHours)
+                    .textFieldStyle(.roundedBorder)
+                    .keyboardType(.decimalPad)
+                
+                Button("Calculate Progress"){
+                    updateProgress()
+                }
+                .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+
+                
+                Text("Progress: \(progressMessage)")
+                    .font(.headline)
+
+                ProgressView(value: progressValue)
+                
+            }
+            .tint(.blue)
+                           
+
+                       Spacer()
             
-            TextField("Completed hours", text: $completedHours)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.decimalPad)
-            
-            Button("Calculate Progress"){
+            .onAppear {
                 updateProgress()
             }
-            
-            Text("Progress: \(progressMessage)")
-
-            ProgressView(value: progressValue)
-
-        }
-        .padding()
-        
-        .onAppear {
-            updateProgress()
         }
     }
     

@@ -51,6 +51,10 @@ struct Start: View {
             }
             .animation(.easeInOut(duration: 0.2), value: UUID())
             .padding(.vertical)
+            
+            Link("Find community service hours", destination: URL(string: "https://www.fmsc.org")!)
+                        .foregroundColor(.blue)
+
         }
     }
 }

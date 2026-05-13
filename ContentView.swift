@@ -50,7 +50,8 @@ struct ContentView: View {
                 Text("Progress: \(progressMessage)")
                                     .font(.headline)
                                 
-                                ProgressView(value: progressValue)
+                ProgressView(value: progressValue)
+                    .scaleEffect(x: 1, y: 3, anchor: .center)
                                 
                                 // deadline result text
                                 Text(deadlineMessage)

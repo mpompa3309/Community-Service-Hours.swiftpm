@@ -17,25 +17,38 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack(spacing: 25){
                 Text("Community Service Tracker")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .font(.headline)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(15)
                 
                 Text("Track your volunteer hours")
                     .foregroundColor(.gray)
+                    .font(.title3)
                 
                 TextField("Goal hours", text: $goalHours)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.decimalPad)
-                
+                    .font(.headline)
+                    .padding()
+                    .cornerRadius(15)
                 
                 TextField("Completed hours", text: $completedHours)
                     .textFieldStyle(.roundedBorder)
                     .keyboardType(.decimalPad)
+                    .font(.headline)
+                    .padding()
+                    .cornerRadius(15)
                 // deadline picker
                 DatePicker(
                     "Goal Deadline",selection: Binding (
+                        
                         get: {
                             Date(timeIntervalSince1970: savedDeadline)},set: { newDate in savedDeadline = newDate.timeIntervalSince1970}),displayedComponents: .date)
+                .font(.headline)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(15)
                 
                 Button("Calculate Progress"){
                     updateProgress()
@@ -48,7 +61,10 @@ struct ContentView: View {
                 
                 
                 Text("Progress: \(progressMessage)")
-                                    .font(.headline)
+                    .font(.headline)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(15)
                                 
                 ProgressView(value: progressValue)
                     .frame(width: 390, height: 20)
@@ -56,9 +72,12 @@ struct ContentView: View {
                     .clipShape(Capsule())
                                 
                                 // deadline result text
-                                Text(deadlineMessage)
-                                    .foregroundColor(.red)
-                                    .multilineTextAlignment(.center)
+                    Text(deadlineMessage)
+                    .font(.headline)
+                    .padding()
+                    .background(Color(.orange))
+                    .cornerRadius(15)
+                    .multilineTextAlignment(.center)
                                 
                                 Spacer()
                             }            .tint(.blue)

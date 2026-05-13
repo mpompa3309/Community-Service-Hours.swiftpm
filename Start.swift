@@ -56,7 +56,12 @@ struct Start: View {
                 .font(.footnote)
                 .foregroundColor(.blue)
                 .padding(.top, 8)
-
+            NavigationLink("Volunteer Tips") {
+                TipsView()
+            }
+            .font(.footnote)
+            .foregroundColor(.blue)
+            .padding(.top, 8)
         }
     }
 }

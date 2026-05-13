@@ -53,7 +53,9 @@ struct Start: View {
             .padding(.vertical)
             
             Link("Find community service hours", destination: URL(string: "https://www.fmsc.org")!)
-                        .foregroundColor(.blue)
+                .font(.footnote)
+                .foregroundColor(.blue)
+                .padding(.top, 8)
 
         }
     }

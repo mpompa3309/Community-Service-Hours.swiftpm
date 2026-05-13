@@ -51,7 +51,9 @@ struct ContentView: View {
                                     .font(.headline)
                                 
                 ProgressView(value: progressValue)
-                    .scaleEffect(x: 1, y: 3, anchor: .center)
+                    .frame(width: 390, height: 20)
+                    .scaleEffect(x: 1, y: 5, anchor: .center)
+                    .clipShape(Capsule())
                                 
                                 // deadline result text
                                 Text(deadlineMessage)
